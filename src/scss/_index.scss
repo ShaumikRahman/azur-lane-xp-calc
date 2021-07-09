@@ -21,10 +21,19 @@ body {
         
 
         .inputsContainer {
-            display: grid;
-            grid-template-columns: 5% 15%;
+            display: flex;
             gap: 1rem;
             justify-content: center;
+            align-items: center;
+
+            @media (max-width: 33.75em) {
+                flex-direction: column;
+            }
+        }
+
+        .specialContainer {
+            margin-top: 1rem;
+            text-align: center;
         }
 
         .submitContainer {
@@ -33,6 +42,8 @@ body {
 
             .submit {
                 cursor: pointer;
+                padding: .5rem;
+                border-radius: .25rem;
             }
         }
 
@@ -42,7 +53,7 @@ body {
 
         input {
             text-align: center;
-            border-radius: 0.25rem;
+            //border-radius: 0.25rem;
             border: none;
             background-color: $dark;
             color: $light;
