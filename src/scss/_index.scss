@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $darkest;
+    color: $light;
+    font-family: 'Roboto';
+}
+
+.App {
+    margin-top: 1.5rem;
+    
+    &__Title {
+        text-align: center;
+    }
+
+    &__Inputs {
+        margin-top: 3rem;
+        
+
+        .inputsContainer {
+            display: grid;
+            grid-template-columns: 5% 15%;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .submitContainer {
+            margin-top: 1rem;
+            text-align: center;
+
+            .submit {
+                cursor: pointer;
+            }
+        }
+
+        input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input {
+            text-align: center;
+            border-radius: 0.25rem;
+            border: none;
+            background-color: $dark;
+            color: $light;
+        }
+    }
+}
