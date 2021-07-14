@@ -2,87 +2,188 @@ import { useState } from "react";
 const normalLevels = require("./../json/normal.json");
 const specialLevels = require("./../json/special.json");
 
-const InputForm = () => {
-  const [level, setLevel] = useState("");
-  const [exp, setExp] = useState("");
+const InputForm = ({handleData}) => {
+  const [level, setLevel] = useState('');
+  const [exp, setExp] = useState('  ');
   const [special, setSpecial] = useState(false);
+
+  const clear = (e) => {
+    e.preventDefault();
+    setLevel('');
+    setExp('');
+
+    document.getElementById('form').reset();
+  }
 
   const calculate = (e) => {
     e.preventDefault();
+    //console.clear();
 
-    if (level) {
+    if (level && level !== 120) {
       if (special) {
         specialLevels.forEach((levelInfo) => {
+          const maxExp = specialLevels[119].Total;
           if (level === levelInfo.Level) {
+            const currentExp = levelInfo.Total;
+            const initialStoredExp = exp;
             let index = specialLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let tempExp = exp;
+            let storedExp = parseInt(exp);
+            let plusLevel = false;
 
-            while (tempExp > toNext) {
-              tempExp = tempExp - toNext;
+            
+
+            while (storedExp >= toNext) {
+              plusLevel = true;
+              storedExp = storedExp - toNext;
               index++;
-              toNext = specialLevels[index].Next;
+              if (index !== 119) {
+                try {
+                  toNext = specialLevels[index].Next;
+                } catch (error) {
+                  storedExp = 0;
+                  index = 119;
+                }
+              }
             }
 
-            console.log(`The Ships true level is ${
-              specialLevels[index].Level
-            } with ${tempExp} points of stored EXP, 
-            ${((tempExp / toNext) * 100).toFixed(2)}% progress towards ${
-              specialLevels[++index].Level
-            }`);
+            if (typeof storedExp !== 'number') {
+              storedExp = 0;
+            }
+
+            let _next;
+            let _maxProgress;
+            let _maxPercentage;
+            if (index !== 119) {
+              _next = specialLevels[index+1].Level;
+              _maxProgress = (maxExp - (currentExp + storedExp));
+              _maxPercentage = (((currentExp + storedExp) / maxExp) * 100).toFixed(2);
+              
+            } else {
+              _next = 120;
+              _maxProgress= 0;
+              _maxPercentage = 0;
+            }
+            const _level = specialLevels[index].Level;
+            const _progress = ((storedExp / toNext) * 100).toFixed(2);
+
+            if (!plusLevel) {
+              console.log(`The ships level is ${_level} with ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            } else {
+              console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            }
+
+            let data = {
+              "special": special, 
+              "plusLevel": plusLevel,
+              "level": _level,
+              "progress": _progress,
+              "next": _next,
+              "maxProgress": _maxProgress,
+              "maxPercentage": _maxPercentage,
+              "storedExp": initialStoredExp
+            }
+
+            handleData(data);
           }
         });
       } else {
+        const maxExp = normalLevels[119].Total;
         normalLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
+            const currentExp = levelInfo.Total;
+            const initialStoredExp = exp;
             let index = normalLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let tempExp = exp;
+            let storedExp = exp;
             let plusLevel = false;
 
-            while (tempExp > toNext) {
+            
+
+            while (storedExp >= toNext) {
               plusLevel = true;
-              tempExp = tempExp - toNext;
+              storedExp = storedExp - toNext;
               index++;
-              toNext = normalLevels[index].Next;
+              if (index !== 119) {
+                try {
+                  toNext = normalLevels[index].Next;
+                } catch (error) {
+                  storedExp = 0;
+                  index = 119;
+                }
+              }
             }
 
-            console.log();
+            if (typeof storedExp !== 'number') {
+              storedExp = 0;
+            }
+
+            let _next;
+            let _maxProgress;
+            let _maxPercentage;
+            if (index !== 119) {
+              _next = normalLevels[index+1].Level;
+              _maxProgress = (maxExp - (currentExp + storedExp));
+              _maxPercentage = (((currentExp + storedExp) / maxExp) * 100).toFixed(2);
+              
+            } else {
+              _next = 120;
+              _maxProgress= 0;
+              _maxPercentage = 0;
+            }
+            const _level = normalLevels[index].Level;
+            const _progress = ((storedExp / toNext) * 100).toFixed(2);
+            
 
             if (!plusLevel) {
-              console.log(`The ships level is still ${
-                normalLevels[index].Level
-              } with ${((tempExp / toNext) * 100).toFixed(2)}% progress towards level ${
-                normalLevels[++index].Level
-              }`);
+              console.log(`The ships level is ${_level} with ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
             } else {
-              console.log(`The Ships true level is ${
-                normalLevels[index].Level
-              } with ${tempExp} points of stored EXP, 
-            ${((tempExp / toNext) * 100).toFixed(2)}% progress towards level ${
-                normalLevels[++index].Level
-              }`);
+              console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
             }
+
+            // let data = [
+            //   special, plusLevel, _level, _progress, _next, _maxPercentage, _maxProgress, initialStoredExp
+            // ]
+
+            let data = {
+              "special": special, 
+              "plusLevel": plusLevel,
+              "level": _level,
+              "progress": _progress,
+              "next": _next,
+              "maxProgress": _maxProgress,
+              "maxPercentage": _maxPercentage,
+              "storedExp": initialStoredExp
+            }
+
+            handleData(data);
+
           }
         });
       }
+    } else {
+      window.alert('Please enter a VALID level (1-119)');
     }
   };
 
   return (
     <>
-      <form className="App__Inputs" onSubmit={calculate}>
+      <form className="App__Inputs" id="form" onSubmit={calculate}>
         <div className="inputsContainer">
           <input
             min="1"
-            max="120"
+            max="119"
             placeholder="Level"
             type="number"
             className="Level"
             name="level"
             value={level}
             onChange={(e) => {
-              setLevel(parseInt(e.target.value));
+              if (!e.target.value) {
+                setLevel(0);
+              } else {
+                setLevel(parseInt(e.target.value));
+              }
             }}
           />
           <input
@@ -91,14 +192,20 @@ const InputForm = () => {
             type="number"
             className="Exp"
             name="exp"
-            value={exp}
             onChange={(e) => {
-              setExp(e.target.value);
+              if (!e.target.value) {
+                setExp(0);
+              } else {
+                setExp(parseInt(e.target.value));
+              }
             }}
           />
+          <button className="clear" onClick={clear} type="button" name="clear">
+          X
+          </button>
         </div>
         <div className="specialContainer">
-          <label htmlFor="special"> UR/DR </label>
+          <label htmlFor="special" className="specialLabel"> UR/DR </label>
           <input
             type="checkbox"
             name="special"
@@ -110,7 +217,7 @@ const InputForm = () => {
           />
         </div>
         <div className="submitContainer">
-          <input type="submit" className="submit" value="Calculate" />
+          <input type="submit" className="submit" value="Calculate"/>
         </div>
       </form>
     </>
