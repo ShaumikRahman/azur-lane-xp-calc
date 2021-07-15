@@ -9,8 +9,14 @@ body {
     font-family: 'Roboto';
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .App {
     margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
     
     &__Title {
         text-align: center;
@@ -69,6 +75,17 @@ body {
 
         .Exp, .clear {
             height: 2.5rem;
+            width: 30%;
+
+            // @media (max-width: 26.5625) {
+            //     width: 95%;
+            // }
+
+            @media (max-width: 33.75em) {
+                width: 60%;
+            }
+
+            
         }
 
         .clear {
@@ -103,5 +120,69 @@ body {
         input:focus::placeholder {
             opacity: 0;
         }
+    }
+
+    &__Output {
+        width: 95%;
+        align-self: center;
+        margin-top: 1.5rem;
+        gap: 1rem;
+        display: flex;
+        justify-content: center;
+
+        @media (max-width: 33.75em) {
+            flex-direction: column;
+        }
+        
+        .outputSection {
+            text-align: center;
+            background-color: $darker;
+            flex: 33%;
+            align-content: center;
+            padding: 1rem 0rem;
+
+            
+        }
+
+        .first {
+
+            .info {
+                padding: .5rem;    
+            }
+
+            @media (max-width: 33.75em) {
+                order: 1;
+            }
+        }
+        .second, .third {
+
+            .percentageNumbers {
+                display: grid;
+                grid-template-columns: 20% 60% 20%;
+            }
+
+            .percentageBar {
+                margin: .25rem 0rem;
+                width: 0%;
+                height: 0.55rem;
+                //border-radius: 1rem;
+                //background: #e0ff00;
+                //background: linear-gradient(to right, magenta, turquoise);
+
+                transition: width 150ms ease-in-out;
+            }
+
+            @media (max-width: 33.75em) {
+                order: 2;
+            }
+        }
+
+        .third {
+            @media (max-width: 33.75em) {
+                order: 3;
+            }
+        }
+
+        
     }
 }

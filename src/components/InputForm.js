@@ -2,17 +2,17 @@ import { useState } from "react";
 const normalLevels = require("./../json/normal.json");
 const specialLevels = require("./../json/special.json");
 
-const InputForm = ({handleData}) => {
+const InputForm = ({controlMessage}) => {
   const [level, setLevel] = useState('');
-  const [exp, setExp] = useState('  ');
+  const [exp, setExp] = useState('');
   const [special, setSpecial] = useState(false);
 
   const clear = (e) => {
     e.preventDefault();
     setLevel('');
     setExp('');
-
     document.getElementById('form').reset();
+    controlMessage();
   }
 
   const calculate = (e) => {
@@ -28,9 +28,9 @@ const InputForm = ({handleData}) => {
             const initialStoredExp = exp;
             let index = specialLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let storedExp = parseInt(exp);
+            let storedExp = exp;
             let plusLevel = false;
-
+            let progress = parseInt(initialStoredExp + currentExp);
             
 
             while (storedExp >= toNext) {
@@ -51,6 +51,7 @@ const InputForm = ({handleData}) => {
               storedExp = 0;
             }
 
+
             let _next;
             let _maxProgress;
             let _maxPercentage;
@@ -58,33 +59,34 @@ const InputForm = ({handleData}) => {
               _next = specialLevels[index+1].Level;
               _maxProgress = (maxExp - (currentExp + storedExp));
               _maxPercentage = (((currentExp + storedExp) / maxExp) * 100).toFixed(2);
-              
             } else {
               _next = 120;
               _maxProgress= 0;
-              _maxPercentage = 0;
+              _maxPercentage = 100;
             }
             const _level = specialLevels[index].Level;
-            const _progress = ((storedExp / toNext) * 100).toFixed(2);
+            const percentage = ((storedExp / toNext) * 100).toFixed(2);
 
-            if (!plusLevel) {
-              console.log(`The ships level is ${_level} with ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
-            } else {
-              console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
-            }
+            // if (!plusLevel) {
+            //   console.log(`The ships level is ${_level} with ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            // } else {
+            //   console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            // }
+
 
             let data = {
               "special": special, 
               "plusLevel": plusLevel,
               "level": _level,
-              "progress": _progress,
+              "progress": progress,
+              "percentage": percentage,
               "next": _next,
               "maxProgress": _maxProgress,
               "maxPercentage": _maxPercentage,
               "storedExp": initialStoredExp
             }
-
-            handleData(data);
+            
+            controlMessage(data);
           }
         });
       } else {
@@ -97,6 +99,7 @@ const InputForm = ({handleData}) => {
             let toNext = levelInfo.Next;
             let storedExp = exp;
             let plusLevel = false;
+            let progress = parseInt(initialStoredExp + currentExp);
 
             
 
@@ -129,34 +132,37 @@ const InputForm = ({handleData}) => {
             } else {
               _next = 120;
               _maxProgress= 0;
-              _maxPercentage = 0;
+              _maxPercentage = 100;
             }
             const _level = normalLevels[index].Level;
-            const _progress = ((storedExp / toNext) * 100).toFixed(2);
+            const percentage = ((storedExp / toNext) * 100).toFixed(2);
             
 
-            if (!plusLevel) {
-              console.log(`The ships level is ${_level} with ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
-            } else {
-              console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${_progress}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
-            }
+            // if (!plusLevel) {
+            //   console.log(`The ships level is ${_level} with ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            // } else {
+            //   console.log(`The ships level is ${_level} with ${initialStoredExp} stored EXP, ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
+            // }
 
             // let data = [
-            //   special, plusLevel, _level, _progress, _next, _maxPercentage, _maxProgress, initialStoredExp
+            //   special, plusLevel, _level, percentage, _next, _maxPercentage, _maxProgress, initialStoredExp
             // ]
 
             let data = {
               "special": special, 
               "plusLevel": plusLevel,
               "level": _level,
-              "progress": _progress,
+              "progress": progress,
+              "percentage": percentage,
               "next": _next,
               "maxProgress": _maxProgress,
               "maxPercentage": _maxPercentage,
               "storedExp": initialStoredExp
             }
 
-            handleData(data);
+            
+
+            controlMessage(data);
 
           }
         });
@@ -188,7 +194,7 @@ const InputForm = ({handleData}) => {
           />
           <input
             min="1"
-            placeholder="Ship Experience"
+            placeholder="Ship Experience (optional)"
             type="number"
             className="Exp"
             name="exp"
@@ -200,7 +206,7 @@ const InputForm = ({handleData}) => {
               }
             }}
           />
-          <button className="clear" onClick={clear} type="button" name="clear">
+          <button className="clear" type="button" name="clear" onClick={(e) => clear(e)}>
           X
           </button>
         </div>

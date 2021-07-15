@@ -1,24 +1,19 @@
 import { useState } from "react";
 import InputForm from "./components/InputForm";
-import Message from "./components/Message";
+import Output from "./components/Output";
 
 function App() {
   const [data, setData] = useState();
 
-  const controlMessage = (data) => {
-    setData(data);
-  }
-
-  let message;
-  if (data) {
-    message = <Message data={data} />
+  const controlMessage = (info) => {
+    setData(info);
   }
 
   return (
     <div className="App">
       <h1 className="App__Title">Azur Lane Experience Calculator</h1>
-      <InputForm handleData={controlMessage}/>
-      {message}
+      <InputForm controlMessage={(e) => controlMessage(e)} />
+      <Output data={data} />
     </div>
   );
 }
