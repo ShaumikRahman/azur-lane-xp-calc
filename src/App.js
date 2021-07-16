@@ -5,14 +5,14 @@ import Output from "./components/Output";
 function App() {
   const [data, setData] = useState();
 
-  const controlMessage = (info) => {
+  const controlData = (info) => {
     setData(info);
   }
 
   return (
     <div className="App">
       <h1 className="App__Title">Azur Lane Experience Calculator</h1>
-      <InputForm controlMessage={(e) => controlMessage(e)} />
+      <InputForm controlMessage={(e) => controlData(e)} />
       <Output data={data} />
     </div>
   );
