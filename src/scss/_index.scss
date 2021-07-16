@@ -14,12 +14,14 @@ body::-webkit-scrollbar {
 }
 
 .App {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
 
   &__Title {
+    padding: 1.5rem 0rem;
     text-align: center;
+    background-color: $darker;
+    box-shadow: 0px 0px 16px 16px rgba(0, 0, 0, 0.50);
   }
 
   &__Inputs {
@@ -191,6 +193,7 @@ body::-webkit-scrollbar {
     .tableContainer {
       //border: 1px solid magenta;
       width: 95%;
+      margin-bottom: 2.5rem;
 
       .tableController {
         margin-bottom: 1.5rem;

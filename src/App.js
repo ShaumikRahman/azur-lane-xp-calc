@@ -11,7 +11,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="App__Title">Azur Lane Experience Calculator</h1>
+      <div className="App__Title">
+        <h1>Azur Lane Experience Calculator</h1>
+      </div>
       <InputForm controlMessage={(e) => controlData(e)} />
       <Output data={data} />
     </div>
