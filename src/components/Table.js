@@ -15,7 +15,7 @@ const Table = ({ data }) => {
   const [mood, setMood] = useState(true);
   const [runs, setRuns] = useState(false);
   const [plan, setPlan] = useState(false);
-  const [oil, setOil] = useState(15);
+  const [oil, setOil] = useState('15');
 
   let flagMvp = [];
   let flagMvpRuns = [];
@@ -25,6 +25,10 @@ const Table = ({ data }) => {
   let standardRuns = [];
 
   if (data) {
+
+    document.getElementById('oil').removeAttribute('disabled');
+    document.getElementById('oil').classList.remove('disabled');
+
     //console.log("data");
     let maxLevelExp = data.maxProgress;
     let Easy;
@@ -180,6 +184,12 @@ const Table = ({ data }) => {
     }
   } else {
     //console.log("none");
+
+    if (document.getElementById('oil')) {
+      document.getElementById('oil').setAttribute('disabled', '');
+      document.getElementById('oil').classList.add('disabled');
+    }
+
     flagMvp = ["~", "~", "~", "~"];
 
     mvp = ["~", "~", "~", "~"];
@@ -193,8 +203,8 @@ const Table = ({ data }) => {
     standardRuns = [0, 0, 0, 0];
   }
 
-  console.log(typeof oil)
-  console.log(typeof standardRuns[0]);
+  // console.log(typeof oil)
+  // console.log(typeof standardRuns[0]);
 
   return (
     <div className="tableContainer">
@@ -348,16 +358,20 @@ const Table = ({ data }) => {
           </tr>
         </tbody>
       </table>
-      <div className="oilInput">
-        <label htmlFor="oil"><img src={oilCan} className="oilCan" alt="oil" /> Cost of Ship </label>
+      <form className="oilInput">
+        <label htmlFor="oil"><img src={oilCan} className="oilCan" alt="oil" /> Cost of Ship: </label>
         <input
+        id="oil"
+        className="disabled"
         name="oil"
         type="number"
+        min="1"
         max="19"
         value={oil}
         onChange={e => setOil(e.target.value)}
+        disabled
          />
-      </div>
+      </form>
       <table className="table">
         <thead className="table__head">
           <tr>
@@ -381,24 +395,24 @@ const Table = ({ data }) => {
             <td>
               <img src={flag} alt="flag" className="flag" /> MVP
             </td>
-            <td><p>{flagMvpRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
           </tr>
           <tr>
             <td>MVP</td>
-            <td><p>{mvpRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
           </tr>
           <tr>
             <td>Standard</td>
-            <td><p>{standardRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
           </tr>
         </tbody>
       </table>

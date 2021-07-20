@@ -194,7 +194,7 @@ const InputForm = ({controlMessage}) => {
           />
           <input
             min="0"
-            placeholder="Ship Experience (optional)"
+            placeholder="Ship Experience"
             type="number"
             className="Exp"
             name="exp"

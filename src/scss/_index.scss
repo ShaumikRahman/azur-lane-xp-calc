@@ -203,6 +203,10 @@ body::-webkit-scrollbar {
         width: 1.125rem;
         height: 1.5rem;
         vertical-align: middle;
+
+        @media (max-width: 20em) {
+          display: none;
+        }
       }
 
       .oilInput {
@@ -217,11 +221,16 @@ body::-webkit-scrollbar {
           text-align: center;
 
           height: 1.5rem;
-          width: 2.5%;
+          width: 1.5rem;
           border-radius: 0.25rem;
           border: none;
           background-color: #2f3253;
           color: #fafafa;
+        }
+
+        .disabled {
+          border: 1px solid red;
+          opacity: 0.75;
         }
       }
 
