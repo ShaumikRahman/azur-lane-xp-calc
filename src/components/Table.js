@@ -5,6 +5,8 @@ import large from "../img/Large.png";
 import boss from "../img/Boss.png";
 import happy from "../img/ReallyHappy.png";
 import flag from "../img/Flag.png";
+import heclp from "../img/Plan.png";
+import oilCan from "../img/Oil.png";
 const stages = require("../json/stages.json");
 
 const Table = ({ data }) => {
@@ -12,6 +14,8 @@ const Table = ({ data }) => {
   const [rank, setRank] = useState(true);
   const [mood, setMood] = useState(true);
   const [runs, setRuns] = useState(false);
+  const [plan, setPlan] = useState(false);
+  const [oil, setOil] = useState(15);
 
   let flagMvp = [];
   let flagMvpRuns = [];
@@ -47,17 +51,32 @@ const Table = ({ data }) => {
           temp = Math.trunc(temp * 2); // mvp
           temp = Math.trunc(temp * 1.5); // flag
           temp = Math.trunc(temp * 1.2); // mood
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           flagMvp[i] = temp;
           flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); //rank
           temp = Math.trunc(temp * 2); // mvp
           temp = Math.trunc(temp * 1.2); // mood
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           mvp[i] = temp;
           mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); //rank
           temp = Math.trunc(temp * 1.2); // mood
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           standard[i] = temp;
           standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
@@ -66,15 +85,30 @@ const Table = ({ data }) => {
           let temp = Math.trunc(diffs[i] * 1.2); //rank
           temp = Math.trunc(temp * 2); // mvp
           temp = Math.trunc(temp * 1.5); // flag
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           flagMvp[i] = temp;
           flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); //rank
           temp = Math.trunc(temp * 2); // mvp
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           mvp[i] = temp;
           mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); //rank
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           standard[i] = temp;
           standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
@@ -85,15 +119,30 @@ const Table = ({ data }) => {
           let temp = Math.trunc(diffs[i] * 1.2); // mood
           temp = Math.trunc(temp * 2); // mvp
           temp = Math.trunc(temp * 1.5); // flag
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           flagMvp[i] = temp;
           flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); // mood
           temp = Math.trunc(temp * 2); // mvp
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           mvp[i] = temp;
           mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 1.2); // mood
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           standard[i] = temp;
           standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
@@ -101,14 +150,29 @@ const Table = ({ data }) => {
         for (let i = 0; i < diffs.length; i++) {
           let temp = Math.trunc(diffs[i] * 2); // mvp
           temp = Math.trunc(temp * 1.5); // flag
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           flagMvp[i] = temp;
           flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = Math.trunc(diffs[i] * 2); // mvp
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           mvp[i] = temp;
           mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
 
           temp = diffs[i];
+
+          if (plan) {
+            
+            temp = temp * 2;
+          }
           standard[i] = temp;
           standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
@@ -122,12 +186,15 @@ const Table = ({ data }) => {
 
     standard = ["~", "~", "~", "~"];
 
-    flagMvpRuns = ["~", "~", "~", "~"];
+    flagMvpRuns = [0, 0, 0, 0];
 
-    mvpRuns = ["~", "~", "~", "~"];
+    mvpRuns = [0, 0, 0, 0];
 
-    standardRuns = ["~", "~", "~", "~"];
+    standardRuns = [0, 0, 0, 0];
   }
+
+  console.log(typeof oil)
+  console.log(typeof standardRuns[0]);
 
   return (
     <div className="tableContainer">
@@ -199,7 +266,7 @@ const Table = ({ data }) => {
           <input
             type="checkbox"
             name="rank"
-            className="rank"
+            className="rank check"
             defaultChecked={rank}
             onChange={(e) => setRank(e.target.checked)}
           />
@@ -208,6 +275,7 @@ const Table = ({ data }) => {
           <img src={happy} alt="happy" className="happy" />
           <label htmlFor="mood">119+ Morale: </label>
           <input
+          className="check"
             type="checkbox"
             name="mood"
             defaultChecked={mood}
@@ -217,10 +285,22 @@ const Table = ({ data }) => {
         <div className="switchContainer center">
           <label htmlFor="runs">Show runs: </label>
           <input
+          className="check"
             type="checkbox"
             name="runs"
             defaultChecked={runs}
             onChange={(e) => setRuns(e.target.checked)}
+          />
+        </div>
+        <div className="planContainer center">
+          <img src={heclp} alt="plan" className="plan"/>
+          <label htmlFor="plan"> </label>
+          <input
+          className="check"
+            type="checkbox"
+            name="plan"
+            defaultChecked={plan}
+            onChange={(e) => setPlan(e.target.checked)}
           />
         </div>
       </div>
@@ -265,6 +345,60 @@ const Table = ({ data }) => {
             <td>{runs ? standardRuns[1] : standard[1]}</td>
             <td>{runs ? standardRuns[2] : standard[2]}</td>
             <td>{runs ? standardRuns[3] : standard[3]}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="oilInput">
+        <label htmlFor="oil"><img src={oilCan} className="oilCan" alt="oil" /> Cost of Ship </label>
+        <input
+        name="oil"
+        type="number"
+        max="19"
+        value={oil}
+        onChange={e => setOil(e.target.value)}
+         />
+      </div>
+      <table className="table">
+        <thead className="table__head">
+          <tr>
+            <th>Oil Cost</th>
+            <th>
+              <img src={small} alt="small" />
+            </th>
+            <th>
+              <img src={medium} alt="medium" />
+            </th>
+            <th>
+              <img src={large} alt="large" />
+            </th>
+            <th>
+              <img src={boss} alt="boss" />
+            </th>
+          </tr>
+        </thead>
+        <tbody className="table__body">
+          <tr>
+            <td>
+              <img src={flag} alt="flag" className="flag" /> MVP
+            </td>
+            <td><p>{flagMvpRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{flagMvpRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+          </tr>
+          <tr>
+            <td>MVP</td>
+            <td><p>{mvpRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{mvpRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+          </tr>
+          <tr>
+            <td>Standard</td>
+            <td><p>{standardRuns[0] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[1] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[2] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td><p>{standardRuns[3] * parseInt(oil)}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
           </tr>
         </tbody>
       </table>
