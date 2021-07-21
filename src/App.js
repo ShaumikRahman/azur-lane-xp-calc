@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputForm from "./components/InputForm";
 import Output from "./components/Output";
+import Footer from "./components/Footer";
 
 function App() {
   const [data, setData] = useState();
@@ -16,6 +17,7 @@ function App() {
       </div>
       <InputForm controlMessage={(e) => controlData(e)} />
       <Output data={data} />
+      <Footer />
     </div>
   );
 }
