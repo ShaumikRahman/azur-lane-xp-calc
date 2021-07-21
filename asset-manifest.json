@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/azur-lane-xp-calc/static/js/main.4bc71541.chunk.js",
+    "main.js.map": "/azur-lane-xp-calc/static/js/main.4bc71541.chunk.js.map",
+    "runtime-main.js": "/azur-lane-xp-calc/static/js/runtime-main.bf4470ba.js",
+    "runtime-main.js.map": "/azur-lane-xp-calc/static/js/runtime-main.bf4470ba.js.map",
+    "static/js/2.0677fdc9.chunk.js": "/azur-lane-xp-calc/static/js/2.0677fdc9.chunk.js",
+    "static/js/2.0677fdc9.chunk.js.map": "/azur-lane-xp-calc/static/js/2.0677fdc9.chunk.js.map",
+    "index.html": "/azur-lane-xp-calc/index.html",
+    "static/js/2.0677fdc9.chunk.js.LICENSE.txt": "/azur-lane-xp-calc/static/js/2.0677fdc9.chunk.js.LICENSE.txt",
+    "static/media/AL.6823b089.png": "/azur-lane-xp-calc/static/media/AL.6823b089.png",
+    "static/media/Oil.8541049f.png": "/azur-lane-xp-calc/static/media/Oil.8541049f.png",
+    "static/media/Plan.8f3706ee.png": "/azur-lane-xp-calc/static/media/Plan.8f3706ee.png",
+    "static/media/React.73ac128a.png": "/azur-lane-xp-calc/static/media/React.73ac128a.png",
+    "static/media/Sass.fd475502.png": "/azur-lane-xp-calc/static/media/Sass.fd475502.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf4470ba.js",
+    "static/js/2.0677fdc9.chunk.js",
+    "static/js/main.4bc71541.chunk.js"
+  ]
+}
