@@ -186,7 +186,7 @@ const InputForm = ({controlMessage}) => {
             value={level}
             onChange={(e) => {
               if (!e.target.value) {
-                setLevel(0);
+                setLevel('');
               } else {
                 setLevel(parseInt(e.target.value));
               }

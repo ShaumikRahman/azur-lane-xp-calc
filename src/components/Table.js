@@ -15,7 +15,7 @@ const Table = ({ data }) => {
   const [mood, setMood] = useState(true);
   const [runs, setRuns] = useState(false);
   const [plan, setPlan] = useState(false);
-  const [oil, setOil] = useState('15');
+  const [oil, setOil] = useState("15");
 
   let flagMvp = [];
   let flagMvpRuns = [];
@@ -24,10 +24,21 @@ const Table = ({ data }) => {
   let standard = [];
   let standardRuns = [];
 
-  if (data) {
+  if (!Math.trunc) {
+    console.log("polyfilled");
+    Math.trunc = function (v) {
+      return v < 0 ? Math.ceil(v) : Math.floor(v);
+    };
+  }
 
-    document.getElementById('oil').removeAttribute('disabled');
-    document.getElementById('oil').classList.remove('disabled');
+  function handleOil(e) {
+    e.preventDefault();
+    setOil(e.target.value);
+  }
+
+  if (data) {
+    document.getElementById("oil").removeAttribute("disabled");
+    document.getElementById("oil").classList.remove("disabled");
 
     //console.log("data");
     let maxLevelExp = data.maxProgress;
@@ -51,143 +62,167 @@ const Table = ({ data }) => {
     if (rank) {
       if (mood) {
         for (let i = 0; i < diffs.length; i++) {
-          let temp = Math.trunc(diffs[i] * 1.2); //rank
-          temp = Math.trunc(temp * 2); // mvp
-          temp = Math.trunc(temp * 1.5); // flag
-          temp = Math.trunc(temp * 1.2); // mood
+          if (diffs[i] !== 0) {
+            let xp = Math.trunc(diffs[i] * 1.2); //rank
+            xp = Math.trunc(xp * 2); // mvp
+            xp = Math.trunc(xp * 1.5); // flag
+            xp = Math.trunc(xp * 1.2); // mood
 
-          if (plan) {
-            
-            temp = temp * 2;
+            if (plan) {
+              xp = xp * 2;
+            }
+            flagMvp[i] = xp;
+            flagMvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); //rank
+            xp = Math.trunc(xp * 2); // mvp
+            xp = Math.trunc(xp * 1.2); // mood
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            mvp[i] = xp;
+            mvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); //rank
+            xp = Math.trunc(xp * 1.2); // mood
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            standard[i] = xp;
+            standardRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+          } else {
+            flagMvp[i] = 0;
+            flagMvpRuns[i] = 0;
+            mvp[i] = 0;
+            mvpRuns[i] = 0;
+            standard[i] = 0;
+            standardRuns[i] = 0;
           }
-          flagMvp[i] = temp;
-          flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); //rank
-          temp = Math.trunc(temp * 2); // mvp
-          temp = Math.trunc(temp * 1.2); // mood
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          mvp[i] = temp;
-          mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); //rank
-          temp = Math.trunc(temp * 1.2); // mood
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          standard[i] = temp;
-          standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
       } else {
         for (let i = 0; i < diffs.length; i++) {
-          let temp = Math.trunc(diffs[i] * 1.2); //rank
-          temp = Math.trunc(temp * 2); // mvp
-          temp = Math.trunc(temp * 1.5); // flag
+          if (diffs[i] !== 0) {
+            let xp = Math.trunc(diffs[i] * 1.2); //rank
+            xp = Math.trunc(xp * 2); // mvp
+            xp = Math.trunc(xp * 1.5); // flag
 
-          if (plan) {
-            
-            temp = temp * 2;
+            if (plan) {
+              xp = xp * 2;
+            }
+            flagMvp[i] = xp;
+            flagMvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); //rank
+            xp = Math.trunc(xp * 2); // mvp
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            mvp[i] = xp;
+            mvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); //rank
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            standard[i] = xp;
+            standardRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+          } else {
+            flagMvp[i] = 0;
+            flagMvpRuns[i] = 0;
+            mvp[i] = 0;
+            mvpRuns[i] = 0;
+            standard[i] = 0;
+            standardRuns[i] = 0;
           }
-          flagMvp[i] = temp;
-          flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); //rank
-          temp = Math.trunc(temp * 2); // mvp
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          mvp[i] = temp;
-          mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); //rank
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          standard[i] = temp;
-          standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
       }
     } else {
       if (mood) {
         for (let i = 0; i < diffs.length; i++) {
-          let temp = Math.trunc(diffs[i] * 1.2); // mood
-          temp = Math.trunc(temp * 2); // mvp
-          temp = Math.trunc(temp * 1.5); // flag
+          if (diffs[i] !== 0) {
+            let xp = Math.trunc(diffs[i] * 1.2); // mood
+            xp = Math.trunc(xp * 2); // mvp
+            xp = Math.trunc(xp * 1.5); // flag
 
-          if (plan) {
-            
-            temp = temp * 2;
+            if (plan) {
+              xp = xp * 2;
+            }
+            flagMvp[i] = xp;
+            flagMvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); // mood
+            xp = Math.trunc(xp * 2); // mvp
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            mvp[i] = xp;
+            mvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 1.2); // mood
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            standard[i] = xp;
+            standardRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+          } else {
+            flagMvp[i] = 0;
+            flagMvpRuns[i] = 0;
+            mvp[i] = 0;
+            mvpRuns[i] = 0;
+            standard[i] = 0;
+            standardRuns[i] = 0;
           }
-          flagMvp[i] = temp;
-          flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); // mood
-          temp = Math.trunc(temp * 2); // mvp
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          mvp[i] = temp;
-          mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 1.2); // mood
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          standard[i] = temp;
-          standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
       } else {
         for (let i = 0; i < diffs.length; i++) {
-          let temp = Math.trunc(diffs[i] * 2); // mvp
-          temp = Math.trunc(temp * 1.5); // flag
+          if (diffs[i] !== 0) {
+            let xp = Math.trunc(diffs[i] * 2); // mvp
+            xp = Math.trunc(xp * 1.5); // flag
 
-          if (plan) {
-            
-            temp = temp * 2;
+            if (plan) {
+              xp = xp * 2;
+            }
+            flagMvp[i] = xp;
+            flagMvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = Math.trunc(diffs[i] * 2); // mvp
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            mvp[i] = xp;
+            mvpRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+
+            xp = diffs[i];
+
+            if (plan) {
+              xp = xp * 2;
+            }
+            standard[i] = xp;
+            standardRuns[i] = parseFloat((maxLevelExp / xp).toFixed(0));
+          } else {
+            flagMvp[i] = 0;
+            flagMvpRuns[i] = 0;
+            mvp[i] = 0;
+            mvpRuns[i] = 0;
+            standard[i] = 0;
+            standardRuns[i] = 0;
           }
-          flagMvp[i] = temp;
-          flagMvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = Math.trunc(diffs[i] * 2); // mvp
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          mvp[i] = temp;
-          mvpRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
-
-          temp = diffs[i];
-
-          if (plan) {
-            
-            temp = temp * 2;
-          }
-          standard[i] = temp;
-          standardRuns[i] = parseFloat((maxLevelExp / temp).toFixed(0));
         }
       }
     }
   } else {
     //console.log("none");
 
-    if (document.getElementById('oil')) {
-      document.getElementById('oil').setAttribute('disabled', '');
-      document.getElementById('oil').classList.add('disabled');
+    if (document.getElementById("oil")) {
+      document.getElementById("oil").setAttribute("disabled", "");
+      document.getElementById("oil").classList.add("disabled");
     }
 
     flagMvp = ["~", "~", "~", "~"];
@@ -203,8 +238,10 @@ const Table = ({ data }) => {
     standardRuns = [0, 0, 0, 0];
   }
 
-  // console.log(typeof oil)
+  // console.log(typeof oil);
   // console.log(typeof standardRuns[0]);
+  // console.log(plan);
+  // console.log(flagMvpRuns[3] * oil * 2);
 
   return (
     <div className="tableContainer">
@@ -285,32 +322,32 @@ const Table = ({ data }) => {
           <img src={happy} alt="happy" className="happy" />
           <label htmlFor="mood">119+ Morale: </label>
           <input
-          className="check"
+            className="check"
             type="checkbox"
             name="mood"
             defaultChecked={mood}
             onChange={(e) => setMood(e.target.checked)}
           />
         </div>
-        <div className="switchContainer center">
-          <label htmlFor="runs">Show runs: </label>
-          <input
-          className="check"
-            type="checkbox"
-            name="runs"
-            defaultChecked={runs}
-            onChange={(e) => setRuns(e.target.checked)}
-          />
-        </div>
         <div className="planContainer center">
-          <img src={heclp} alt="plan" className="plan"/>
+          <img src={heclp} alt="plan" className="plan" />
           <label htmlFor="plan"> </label>
           <input
-          className="check"
+            className="check"
             type="checkbox"
             name="plan"
             defaultChecked={plan}
             onChange={(e) => setPlan(e.target.checked)}
+          />
+        </div>
+        <div className="switchContainer center">
+          <label htmlFor="runs">Show runs: </label>
+          <input
+            className="check"
+            type="checkbox"
+            name="runs"
+            defaultChecked={runs}
+            onChange={(e) => setRuns(e.target.checked)}
           />
         </div>
       </div>
@@ -358,20 +395,22 @@ const Table = ({ data }) => {
           </tr>
         </tbody>
       </table>
-      <form className="oilInput">
-        <label htmlFor="oil"><img src={oilCan} className="oilCan" alt="oil" /> Cost of Ship: </label>
+      <div className="oilInput">
+        <label htmlFor="oil">
+          <img src={oilCan} className="oilCanSpecial" alt="oil" /> Cost of Ship:{" "}
+        </label>
         <input
-        id="oil"
-        className="disabled"
-        name="oil"
-        type="number"
-        min="1"
-        max="19"
-        value={oil}
-        onChange={e => setOil(e.target.value)}
-        disabled
-         />
-      </form>
+          id="oil"
+          className="disabled"
+          name="oil"
+          type="number"
+          min="1"
+          max="19"
+          value={oil}
+          onChange={(e) => handleOil(e)}
+          disabled
+        />
+      </div>
       <table className="table">
         <thead className="table__head">
           <tr>
@@ -395,24 +434,76 @@ const Table = ({ data }) => {
             <td>
               <img src={flag} alt="flag" className="flag" /> MVP
             </td>
-            <td><p>{flagMvpRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{flagMvpRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td>
+              <p>
+                {plan ? flagMvpRuns[0] * 2 * oil * 2 : flagMvpRuns[0] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? flagMvpRuns[1] * 2 * oil * 2 : flagMvpRuns[1] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? flagMvpRuns[2] * 2 * oil * 2 : flagMvpRuns[2] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? flagMvpRuns[3] * 2 * oil * 2 : flagMvpRuns[3] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
           </tr>
           <tr>
             <td>MVP</td>
-            <td><p>{mvpRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{mvpRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td>
+              <p>{plan ? mvpRuns[0] * 2 * oil * 2 : mvpRuns[0] * oil}</p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>{plan ? mvpRuns[1] * 2 * oil * 2 : mvpRuns[1] * oil}</p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>{plan ? mvpRuns[2] * 2 * oil * 2 : mvpRuns[2] * oil}</p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>{plan ? mvpRuns[3] * 2 * oil * 2 : mvpRuns[3] * oil}</p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
           </tr>
           <tr>
             <td>Standard</td>
-            <td><p>{standardRuns[0] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[1] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[2] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
-            <td><p>{standardRuns[3] * oil}</p> <img src={oilCan} className="oilCan" alt="oil" /></td>
+            <td>
+              <p>
+                {plan ? standardRuns[0] * 2 * oil * 2 : standardRuns[0] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? standardRuns[1] * 2 * oil * 2 : standardRuns[1] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? standardRuns[2] * 2 * oil * 2 : standardRuns[2] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
+            <td>
+              <p>
+                {plan ? standardRuns[3] * 2 * oil * 2 : standardRuns[3] * oil}
+              </p>{" "}
+              <img src={oilCan} className="oilCan" alt="oil" />
+            </td>
           </tr>
         </tbody>
       </table>

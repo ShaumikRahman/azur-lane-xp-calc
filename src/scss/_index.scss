@@ -204,9 +204,15 @@ body::-webkit-scrollbar {
         height: 1.5rem;
         vertical-align: middle;
 
-        @media (max-width: 20em) {
+        @media (max-width: 33.75em) {
           display: none;
         }
+      }
+
+      .oilCanSpecial {
+        width: 1.125rem;
+        height: 1.5rem;
+        vertical-align: middle;
       }
 
       .oilInput {
@@ -328,21 +334,25 @@ body::-webkit-scrollbar {
     }
 
     p {
+      opacity: 0.8;
       width: 33%;
+
+      @media (max-width: 56em) {
+        width: 90%;
+      }
     }
 
     a {
-      color:#b5b5fb;  
+      color:#b5b5fb; 
     }
 
     .react {
-      width: 3.125rem;
-      height: 2.25rem;
+      width: 3.5rem;
     }
 
     .sass {
-      width: 2rem;
-      height: 2rem;
+      width: 4rem;
+      height: 4rem;
     }
 
     img {
