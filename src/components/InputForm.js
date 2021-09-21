@@ -19,10 +19,10 @@ const InputForm = ({controlMessage}) => {
     e.preventDefault();
     //console.clear();
 
-    if (level && level !== 120) {
+    if (level && level <= 120) {
       if (special) {
+        const maxExp = specialLevels[119].Total;
         specialLevels.forEach((levelInfo) => {
-          const maxExp = specialLevels[119].Total;
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
             const initialStoredExp = exp;
@@ -32,18 +32,16 @@ const InputForm = ({controlMessage}) => {
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
             
-
-            while (storedExp >= toNext) {
+            let max = false;
+            while (storedExp >= toNext && !max) {
               plusLevel = true;
               storedExp = storedExp - toNext;
               index++;
-              if (index !== 119) {
-                try {
-                  toNext = specialLevels[index].Next;
-                } catch (error) {
-                  storedExp = 0;
-                  index = 119;
-                }
+              if (index < 119) {
+                toNext = specialLevels[index].Next;
+              } else {
+                toNext = 3000000;
+                max = true;
               }
             }
 
@@ -55,18 +53,35 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index !== 119) {
+            if (index < 119) {
               _next = specialLevels[index+1].Level;
-              _maxProgress = (maxExp - (currentExp + storedExp));
-              _maxPercentage = (((currentExp + storedExp) / maxExp) * 100).toFixed(2);
+              _maxProgress = (maxExp - (currentExp + initialStoredExp));
+              _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
             } else {
-              _next = 120;
+              _next = '3 Million';
               _maxProgress= 0;
               _maxPercentage = 100;
             }
-            const _level = specialLevels[index].Level;
-            const percentage = ((storedExp / toNext) * 100).toFixed(2);
 
+
+            let _level;
+            if (index < 119) {
+              _level = specialLevels[index].Level;
+           } else {
+              _level = specialLevels[119].Level;
+           }
+
+           let percentage;
+           if (max) {
+             if (storedExp > 3000000) {
+               percentage = ((3000000 / toNext) * 100).toFixed(2);
+             } else {
+               percentage = ((storedExp / toNext) * 100).toFixed(2);
+             }
+           } else {
+             percentage = ((storedExp / toNext) * 100).toFixed(2);
+           }
+           
             // if (!plusLevel) {
             //   console.log(`The ships level is ${_level} with ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
             // } else {
@@ -100,20 +115,19 @@ const InputForm = ({controlMessage}) => {
             let storedExp = exp;
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
-
             
-
-            while (storedExp >= toNext) {
+            
+            let max = false;
+            while (storedExp >= toNext && !max) {
               plusLevel = true;
               storedExp = storedExp - toNext;
+
               index++;
-              if (index !== 119) {
-                try {
-                  toNext = normalLevels[index].Next;
-                } catch (error) {
-                  storedExp = 0;
-                  index = 119;
-                }
+              if (index < 119) {
+                toNext = normalLevels[index].Next;
+              } else {
+                toNext = 3000000;
+                max = true;
               }
             }
 
@@ -124,19 +138,34 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index !== 119) {
+            if (index < 119) {
               _next = normalLevels[index+1].Level;
-              _maxProgress = (maxExp - (currentExp + storedExp));
-              _maxPercentage = (((currentExp + storedExp) / maxExp) * 100).toFixed(2);
+              _maxProgress = (maxExp - (currentExp + initialStoredExp));
+              _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
               
             } else {
-              _next = 120;
+              _next = '3 Million';
               _maxProgress= 0;
               _maxPercentage = 100;
             }
-            const _level = normalLevels[index].Level;
-            const percentage = ((storedExp / toNext) * 100).toFixed(2);
+
+            let _level;
+            if (index < 119) {
+               _level = normalLevels[index].Level;
+            } else {
+               _level = normalLevels[119].Level;
+            }
             
+            let percentage;
+            if (max) {
+              if (storedExp > 3000000) {
+                percentage = ((3000000 / toNext) * 100).toFixed(2);
+              } else {
+                percentage = ((storedExp / toNext) * 100).toFixed(2);
+              }
+            } else {
+              percentage = ((storedExp / toNext) * 100).toFixed(2);
+            }
 
             // if (!plusLevel) {
             //   console.log(`The ships level is ${_level} with ${percentage}% progress towards level ${_next} and ${_maxProgress} remaining EXP / ${_maxPercentage}% progress towards max level`);
@@ -157,7 +186,7 @@ const InputForm = ({controlMessage}) => {
               "next": _next,
               "maxProgress": _maxProgress,
               "maxPercentage": _maxPercentage,
-              "storedExp": initialStoredExp
+              "storedExp": storedExp
             }
 
             
@@ -178,7 +207,7 @@ const InputForm = ({controlMessage}) => {
         <div className="inputsContainer">
           <input
             min="1"
-            max="119"
+            max="120"
             placeholder="Level"
             type="number"
             className="Level"

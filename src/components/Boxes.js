@@ -7,6 +7,7 @@ const Boxes = ({data}) => {
   let maxRemaining;
   let maxPercentage;
   let plusLevel;
+  let storedExp;
 
   let output;
 
@@ -20,13 +21,38 @@ const Boxes = ({data}) => {
     maxRemaining = data.maxProgress;
     maxPercentage = data.maxPercentage;
     plusLevel = data.plusLevel;
+    storedExp = data.storedExp;
 
-    output = (
-      <p>
-        The ships current EXP + stored EXP is {progress} which comes to level{" "}
-        {currentLevel}, {maxRemaining} EXP until max level.
-      </p>
-    );
+    if (currentLevel < 120) {
+      output = (
+        <p>
+          The ships current EXP + stored EXP is {progress} which comes to level{" "}
+          {currentLevel}, {maxRemaining} EXP until max level.
+        </p>
+      );
+    } else {
+      if (storedExp < 3000000) {
+        output = (
+          <p>
+            The ship has reached max level. {storedExp} EXP out of 3M has been stored.
+          </p>
+        );
+      } else {
+        output = (
+        <p>
+          The ship has reached max level. 3000000 EXP out of 3M has been stored.
+        </p>
+      );
+      }
+    }
+
+    // output = (
+    //   <p>
+    //     The ships current EXP + stored EXP is {progress} which comes to level{" "}
+    //     {currentLevel}, {maxRemaining} EXP until max level.
+    //   </p>
+    // );
+    
   } else {
     special = false;
     currentLevel = "~";

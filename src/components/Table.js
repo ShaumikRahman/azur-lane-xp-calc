@@ -397,7 +397,7 @@ const Table = ({ data }) => {
       </table>
       <div className="oilInput">
         <label htmlFor="oil">
-          <img src={oilCan} className="oilCanSpecial" alt="oil" /> Cost of Ship:{" "}
+          <img src={oilCan} className="oilCanSpecial" alt="oil" /> Cost of Ship:
         </label>
         <input
           id="oil"
@@ -436,25 +436,25 @@ const Table = ({ data }) => {
             </td>
             <td>
               <p>
-                {plan ? flagMvpRuns[0] * 2 * oil * 2 : flagMvpRuns[0] * oil}
+                {plan ? flagMvpRuns[0] * 4 * oil : flagMvpRuns[0] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? flagMvpRuns[1] * 2 * oil * 2 : flagMvpRuns[1] * oil}
+                {plan ? flagMvpRuns[1] * 4 * oil : flagMvpRuns[1] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? flagMvpRuns[2] * 2 * oil * 2 : flagMvpRuns[2] * oil}
+                {plan ? flagMvpRuns[2] * 4 * oil : flagMvpRuns[2] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? flagMvpRuns[3] * 2 * oil * 2 : flagMvpRuns[3] * oil}
+                {plan ? flagMvpRuns[3] * 4 * oil : flagMvpRuns[3] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
@@ -462,19 +462,19 @@ const Table = ({ data }) => {
           <tr>
             <td>MVP</td>
             <td>
-              <p>{plan ? mvpRuns[0] * 2 * oil * 2 : mvpRuns[0] * oil}</p>{" "}
+              <p>{plan ? mvpRuns[0] * 4 * oil : mvpRuns[0] * oil}</p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
-              <p>{plan ? mvpRuns[1] * 2 * oil * 2 : mvpRuns[1] * oil}</p>{" "}
+              <p>{plan ? mvpRuns[1] * 4 * oil : mvpRuns[1] * oil}</p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
-              <p>{plan ? mvpRuns[2] * 2 * oil * 2 : mvpRuns[2] * oil}</p>{" "}
+              <p>{plan ? mvpRuns[2] * 4 * oil : mvpRuns[2] * oil}</p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
-              <p>{plan ? mvpRuns[3] * 2 * oil * 2 : mvpRuns[3] * oil}</p>{" "}
+              <p>{plan ? mvpRuns[3] * 4 * oil : mvpRuns[3] * oil}</p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
           </tr>
@@ -482,25 +482,25 @@ const Table = ({ data }) => {
             <td>Standard</td>
             <td>
               <p>
-                {plan ? standardRuns[0] * 2 * oil * 2 : standardRuns[0] * oil}
+                {plan ? standardRuns[0] * 4 * oil : standardRuns[0] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? standardRuns[1] * 2 * oil * 2 : standardRuns[1] * oil}
+                {plan ? standardRuns[1] * 4 * oil : standardRuns[1] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? standardRuns[2] * 2 * oil * 2 : standardRuns[2] * oil}
+                {plan ? standardRuns[2] * 4 * oil : standardRuns[2] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
             <td>
               <p>
-                {plan ? standardRuns[3] * 2 * oil * 2 : standardRuns[3] * oil}
+                {plan ? standardRuns[3] * 4 * oil : standardRuns[3] * oil}
               </p>{" "}
               <img src={oilCan} className="oilCan" alt="oil" />
             </td>
