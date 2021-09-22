@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/azur-lane-xp-calc/static/js/main.e0ebd848.chunk.js",
-    "main.js.map": "/azur-lane-xp-calc/static/js/main.e0ebd848.chunk.js.map",
+    "main.js": "/azur-lane-xp-calc/static/js/main.7d25e22a.chunk.js",
+    "main.js.map": "/azur-lane-xp-calc/static/js/main.7d25e22a.chunk.js.map",
     "runtime-main.js": "/azur-lane-xp-calc/static/js/runtime-main.bf4470ba.js",
     "runtime-main.js.map": "/azur-lane-xp-calc/static/js/runtime-main.bf4470ba.js.map",
     "static/js/2.0677fdc9.chunk.js": "/azur-lane-xp-calc/static/js/2.0677fdc9.chunk.js",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime-main.bf4470ba.js",
     "static/js/2.0677fdc9.chunk.js",
-    "static/js/main.e0ebd848.chunk.js"
+    "static/js/main.7d25e22a.chunk.js"
   ]
 }
