@@ -25,10 +25,14 @@ const InputForm = ({controlMessage}) => {
         specialLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
-            const initialStoredExp = exp;
+            const initialStoredExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
+            console.log(typeof initialStoredExp);
+            console.log(initialStoredExp);
             let index = specialLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let storedExp = exp;
+            let storedExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
+            console.log(typeof storedExp);
+            console.log(storedExp);
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
             
@@ -109,10 +113,10 @@ const InputForm = ({controlMessage}) => {
         normalLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
-            const initialStoredExp = exp;
+            const initialStoredExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
             let index = normalLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let storedExp = exp;
+            let storedExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
             
@@ -229,9 +233,9 @@ const InputForm = ({controlMessage}) => {
             name="exp"
             onChange={(e) => {
               if (!e.target.value) {
-                setExp(0);
+                setExp('');
               } else {
-                setExp(parseInt(e.target.value));
+                setExp(`${e.target.value}`);
               }
             }}
           />
