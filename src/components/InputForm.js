@@ -19,20 +19,16 @@ const InputForm = ({controlMessage}) => {
     e.preventDefault();
     //console.clear();
 
-    if (level && level <= 120) {
+    if (level && level <= 125) {
       if (special) {
-        const maxExp = specialLevels[119].Total;
+        const maxExp = specialLevels[124].Total;
         specialLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
-            const initialStoredExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
-            console.log(typeof initialStoredExp);
-            console.log(initialStoredExp);
+            const initialStoredExp = (exp.charAt(0) !== '0' && exp.length ? parseInt(exp) : 0);
             let index = specialLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let storedExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
-            console.log(typeof storedExp);
-            console.log(storedExp);
+            let storedExp = (exp.charAt(0) !== '0' && exp.length ? parseInt(exp) : 0);
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
             
@@ -41,7 +37,7 @@ const InputForm = ({controlMessage}) => {
               plusLevel = true;
               storedExp = storedExp - toNext;
               index++;
-              if (index < 119) {
+              if (index < 124) {
                 toNext = specialLevels[index].Next;
               } else {
                 toNext = 3000000;
@@ -57,7 +53,7 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index < 119) {
+            if (index < 124) {
               _next = specialLevels[index+1].Level;
               _maxProgress = (maxExp - (currentExp + initialStoredExp));
               _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
@@ -69,10 +65,10 @@ const InputForm = ({controlMessage}) => {
 
 
             let _level;
-            if (index < 119) {
+            if (index < 124) {
               _level = specialLevels[index].Level;
            } else {
-              _level = specialLevels[119].Level;
+              _level = specialLevels[124].Level;
            }
 
            let percentage;
@@ -109,17 +105,16 @@ const InputForm = ({controlMessage}) => {
           }
         });
       } else {
-        const maxExp = normalLevels[119].Total;
+        const maxExp = normalLevels[124].Total;
         normalLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
-            const initialStoredExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
+            const initialStoredExp = (exp.charAt(0) !== '0' && exp.length ? parseInt(exp) : 0);
             let index = normalLevels.indexOf(levelInfo);
             let toNext = levelInfo.Next;
-            let storedExp = (exp.charAt(0) !== '0' ? parseInt(exp) : 0);
+            let storedExp = (exp.charAt(0) !== '0' && exp.length ? parseInt(exp) : 0);
             let plusLevel = false;
             let progress = parseInt(initialStoredExp + currentExp);
-            
             
             let max = false;
             while (storedExp >= toNext && !max) {
@@ -127,7 +122,7 @@ const InputForm = ({controlMessage}) => {
               storedExp = storedExp - toNext;
 
               index++;
-              if (index < 119) {
+              if (index < 124) {
                 toNext = normalLevels[index].Next;
               } else {
                 toNext = 3000000;
@@ -142,7 +137,7 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index < 119) {
+            if (index < 124) {
               _next = normalLevels[index+1].Level;
               _maxProgress = (maxExp - (currentExp + initialStoredExp));
               _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
@@ -154,10 +149,10 @@ const InputForm = ({controlMessage}) => {
             }
 
             let _level;
-            if (index < 119) {
+            if (index < 124) {
                _level = normalLevels[index].Level;
             } else {
-               _level = normalLevels[119].Level;
+               _level = normalLevels[124].Level;
             }
             
             let percentage;
@@ -211,7 +206,7 @@ const InputForm = ({controlMessage}) => {
         <div className="inputsContainer">
           <input
             min="1"
-            max="120"
+            max="125"
             placeholder="Level"
             type="number"
             className="Level"

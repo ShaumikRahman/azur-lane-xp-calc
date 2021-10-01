@@ -23,7 +23,7 @@ const Boxes = ({data}) => {
     plusLevel = data.plusLevel;
     storedExp = data.storedExp;
 
-    if (currentLevel < 120) {
+    if (currentLevel < 125) {
       output = (
         <p>
           The ships current EXP + stored EXP is {progress} which comes to level{" "}
@@ -100,7 +100,7 @@ const Boxes = ({data}) => {
         <div className="percentageNumbers">
           <p className="currentLevel">{currentLevel}</p>
           <span className="space"></span>
-          <p className="nextLevel">120</p>
+          <p className="nextLevel">125</p>
         </div>
         <div
           className="percentageBar"

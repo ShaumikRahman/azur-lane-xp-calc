@@ -1,603 +1,627 @@
 [
   {
-    "Level":1,
-    "Next":100,
-    "Total":0
+    "Level": 1,
+    "Next": 100,
+    "Total": 0
   },
   {
-    "Level":2,
-    "Next":200,
-    "Total":100
+    "Level": 2,
+    "Next": 200,
+    "Total": 100
   },
   {
-    "Level":3,
-    "Next":300,
-    "Total":300
+    "Level": 3,
+    "Next": 300,
+    "Total": 300
   },
   {
-    "Level":4,
-    "Next":400,
-    "Total":600
+    "Level": 4,
+    "Next": 400,
+    "Total": 600
   },
   {
-    "Level":5,
-    "Next":500,
-    "Total":1000
+    "Level": 5,
+    "Next": 500,
+    "Total": 1000
   },
   {
-    "Level":6,
-    "Next":600,
-    "Total":1500
+    "Level": 6,
+    "Next": 600,
+    "Total": 1500
   },
   {
-    "Level":7,
-    "Next":700,
-    "Total":2100
+    "Level": 7,
+    "Next": 700,
+    "Total": 2100
   },
   {
-    "Level":8,
-    "Next":800,
-    "Total":2800
+    "Level": 8,
+    "Next": 800,
+    "Total": 2800
   },
   {
-    "Level":9,
-    "Next":900,
-    "Total":3600
+    "Level": 9,
+    "Next": 900,
+    "Total": 3600
   },
   {
-    "Level":10,
-    "Next":1000,
-    "Total":4500
+    "Level": 10,
+    "Next": 1000,
+    "Total": 4500
   },
   {
-    "Level":11,
-    "Next":1100,
-    "Total":5500
+    "Level": 11,
+    "Next": 1100,
+    "Total": 5500
   },
   {
-    "Level":12,
-    "Next":1200,
-    "Total":6600
+    "Level": 12,
+    "Next": 1200,
+    "Total": 6600
   },
   {
-    "Level":13,
-    "Next":1300,
-    "Total":7800
+    "Level": 13,
+    "Next": 1300,
+    "Total": 7800
   },
   {
-    "Level":14,
-    "Next":1400,
-    "Total":9100
+    "Level": 14,
+    "Next": 1400,
+    "Total": 9100
   },
   {
-    "Level":15,
-    "Next":1500,
-    "Total":10500
+    "Level": 15,
+    "Next": 1500,
+    "Total": 10500
   },
   {
-    "Level":16,
-    "Next":1600,
-    "Total":12000
+    "Level": 16,
+    "Next": 1600,
+    "Total": 12000
   },
   {
-    "Level":17,
-    "Next":1700,
-    "Total":13600
+    "Level": 17,
+    "Next": 1700,
+    "Total": 13600
   },
   {
-    "Level":18,
-    "Next":1800,
-    "Total":15300
+    "Level": 18,
+    "Next": 1800,
+    "Total": 15300
   },
   {
-    "Level":19,
-    "Next":1900,
-    "Total":17100
+    "Level": 19,
+    "Next": 1900,
+    "Total": 17100
   },
   {
-    "Level":20,
-    "Next":2000,
-    "Total":19000
+    "Level": 20,
+    "Next": 2000,
+    "Total": 19000
   },
   {
-    "Level":21,
-    "Next":2100,
-    "Total":21000
+    "Level": 21,
+    "Next": 2100,
+    "Total": 21000
   },
   {
-    "Level":22,
-    "Next":2200,
-    "Total":23100
+    "Level": 22,
+    "Next": 2200,
+    "Total": 23100
   },
   {
-    "Level":23,
-    "Next":2300,
-    "Total":25300
+    "Level": 23,
+    "Next": 2300,
+    "Total": 25300
   },
   {
-    "Level":24,
-    "Next":2400,
-    "Total":27600
+    "Level": 24,
+    "Next": 2400,
+    "Total": 27600
   },
   {
-    "Level":25,
-    "Next":2500,
-    "Total":30000
+    "Level": 25,
+    "Next": 2500,
+    "Total": 30000
   },
   {
-    "Level":26,
-    "Next":2600,
-    "Total":32500
+    "Level": 26,
+    "Next": 2600,
+    "Total": 32500
   },
   {
-    "Level":27,
-    "Next":2700,
-    "Total":35100
+    "Level": 27,
+    "Next": 2700,
+    "Total": 35100
   },
   {
-    "Level":28,
-    "Next":2800,
-    "Total":37800
+    "Level": 28,
+    "Next": 2800,
+    "Total": 37800
   },
   {
-    "Level":29,
-    "Next":2900,
-    "Total":40600
+    "Level": 29,
+    "Next": 2900,
+    "Total": 40600
   },
   {
-    "Level":30,
-    "Next":3000,
-    "Total":43500
+    "Level": 30,
+    "Next": 3000,
+    "Total": 43500
   },
   {
-    "Level":31,
-    "Next":3100,
-    "Total":46500
+    "Level": 31,
+    "Next": 3100,
+    "Total": 46500
   },
   {
-    "Level":32,
-    "Next":3200,
-    "Total":49600
+    "Level": 32,
+    "Next": 3200,
+    "Total": 49600
   },
   {
-    "Level":33,
-    "Next":3300,
-    "Total":52800
+    "Level": 33,
+    "Next": 3300,
+    "Total": 52800
   },
   {
-    "Level":34,
-    "Next":3400,
-    "Total":56100
+    "Level": 34,
+    "Next": 3400,
+    "Total": 56100
   },
   {
-    "Level":35,
-    "Next":3500,
-    "Total":59500
+    "Level": 35,
+    "Next": 3500,
+    "Total": 59500
   },
   {
-    "Level":36,
-    "Next":3600,
-    "Total":63000
+    "Level": 36,
+    "Next": 3600,
+    "Total": 63000
   },
   {
-    "Level":37,
-    "Next":3700,
-    "Total":66600
+    "Level": 37,
+    "Next": 3700,
+    "Total": 66600
   },
   {
-    "Level":38,
-    "Next":3800,
-    "Total":70300
+    "Level": 38,
+    "Next": 3800,
+    "Total": 70300
   },
   {
-    "Level":39,
-    "Next":3900,
-    "Total":74100
+    "Level": 39,
+    "Next": 3900,
+    "Total": 74100
   },
   {
-    "Level":40,
-    "Next":4000,
-    "Total":78000
+    "Level": 40,
+    "Next": 4000,
+    "Total": 78000
   },
   {
-    "Level":41,
-    "Next":4200,
-    "Total":82000
+    "Level": 41,
+    "Next": 4200,
+    "Total": 82000
   },
   {
-    "Level":42,
-    "Next":4400,
-    "Total":86200
+    "Level": 42,
+    "Next": 4400,
+    "Total": 86200
   },
   {
-    "Level":43,
-    "Next":4600,
-    "Total":90600
+    "Level": 43,
+    "Next": 4600,
+    "Total": 90600
   },
   {
-    "Level":44,
-    "Next":4800,
-    "Total":95200
+    "Level": 44,
+    "Next": 4800,
+    "Total": 95200
   },
   {
-    "Level":45,
-    "Next":5000,
-    "Total":100000
+    "Level": 45,
+    "Next": 5000,
+    "Total": 100000
   },
   {
-    "Level":46,
-    "Next":5200,
-    "Total":105000
+    "Level": 46,
+    "Next": 5200,
+    "Total": 105000
   },
   {
-    "Level":47,
-    "Next":5400,
-    "Total":110200
+    "Level": 47,
+    "Next": 5400,
+    "Total": 110200
   },
   {
-    "Level":48,
-    "Next":5600,
-    "Total":115600
+    "Level": 48,
+    "Next": 5600,
+    "Total": 115600
   },
   {
-    "Level":49,
-    "Next":5800,
-    "Total":121200
+    "Level": 49,
+    "Next": 5800,
+    "Total": 121200
   },
   {
-    "Level":50,
-    "Next":6000,
-    "Total":127000
+    "Level": 50,
+    "Next": 6000,
+    "Total": 127000
   },
   {
-    "Level":51,
-    "Next":6200,
-    "Total":133000
+    "Level": 51,
+    "Next": 6200,
+    "Total": 133000
   },
   {
-    "Level":52,
-    "Next":6400,
-    "Total":139200
+    "Level": 52,
+    "Next": 6400,
+    "Total": 139200
   },
   {
-    "Level":53,
-    "Next":6600,
-    "Total":145600
+    "Level": 53,
+    "Next": 6600,
+    "Total": 145600
   },
   {
-    "Level":54,
-    "Next":6800,
-    "Total":152200
+    "Level": 54,
+    "Next": 6800,
+    "Total": 152200
   },
   {
-    "Level":55,
-    "Next":7000,
-    "Total":159000
+    "Level": 55,
+    "Next": 7000,
+    "Total": 159000
   },
   {
-    "Level":56,
-    "Next":7200,
-    "Total":166000
+    "Level": 56,
+    "Next": 7200,
+    "Total": 166000
   },
   {
-    "Level":57,
-    "Next":7400,
-    "Total":173200
+    "Level": 57,
+    "Next": 7400,
+    "Total": 173200
   },
   {
-    "Level":58,
-    "Next":7600,
-    "Total":180600
+    "Level": 58,
+    "Next": 7600,
+    "Total": 180600
   },
   {
-    "Level":59,
-    "Next":7800,
-    "Total":188200
+    "Level": 59,
+    "Next": 7800,
+    "Total": 188200
   },
   {
-    "Level":60,
-    "Next":8000,
-    "Total":196000
+    "Level": 60,
+    "Next": 8000,
+    "Total": 196000
   },
   {
-    "Level":61,
-    "Next":8300,
-    "Total":204000
+    "Level": 61,
+    "Next": 8300,
+    "Total": 204000
   },
   {
-    "Level":62,
-    "Next":8600,
-    "Total":212300
+    "Level": 62,
+    "Next": 8600,
+    "Total": 212300
   },
   {
-    "Level":63,
-    "Next":8900,
-    "Total":220900
+    "Level": 63,
+    "Next": 8900,
+    "Total": 220900
   },
   {
-    "Level":64,
-    "Next":9200,
-    "Total":229800
+    "Level": 64,
+    "Next": 9200,
+    "Total": 229800
   },
   {
-    "Level":65,
-    "Next":9500,
-    "Total":239000
+    "Level": 65,
+    "Next": 9500,
+    "Total": 239000
   },
   {
-    "Level":66,
-    "Next":9800,
-    "Total":248500
+    "Level": 66,
+    "Next": 9800,
+    "Total": 248500
   },
   {
-    "Level":67,
-    "Next":10100,
-    "Total":258300
+    "Level": 67,
+    "Next": 10100,
+    "Total": 258300
   },
   {
-    "Level":68,
-    "Next":10400,
-    "Total":268400
+    "Level": 68,
+    "Next": 10400,
+    "Total": 268400
   },
   {
-    "Level":69,
-    "Next":10700,
-    "Total":278800
+    "Level": 69,
+    "Next": 10700,
+    "Total": 278800
   },
   {
-    "Level":70,
-    "Next":12100,
-    "Total":289500
+    "Level": 70,
+    "Next": 12100,
+    "Total": 289500
   },
   {
-    "Level":71,
-    "Next":12540,
-    "Total":301600
+    "Level": 71,
+    "Next": 12540,
+    "Total": 301600
   },
   {
-    "Level":72,
-    "Next":12980,
-    "Total":314140
+    "Level": 72,
+    "Next": 12980,
+    "Total": 314140
   },
   {
-    "Level":73,
-    "Next":13420,
-    "Total":327120
+    "Level": 73,
+    "Next": 13420,
+    "Total": 327120
   },
   {
-    "Level":74,
-    "Next":13860,
-    "Total":340540
+    "Level": 74,
+    "Next": 13860,
+    "Total": 340540
   },
   {
-    "Level":75,
-    "Next":14300,
-    "Total":354400
+    "Level": 75,
+    "Next": 14300,
+    "Total": 354400
   },
   {
-    "Level":76,
-    "Next":14740,
-    "Total":368700
+    "Level": 76,
+    "Next": 14740,
+    "Total": 368700
   },
   {
-    "Level":77,
-    "Next":15180,
-    "Total":383440
+    "Level": 77,
+    "Next": 15180,
+    "Total": 383440
   },
   {
-    "Level":78,
-    "Next":15620,
-    "Total":398620
+    "Level": 78,
+    "Next": 15620,
+    "Total": 398620
   },
   {
-    "Level":79,
-    "Next":16060,
-    "Total":414240
+    "Level": 79,
+    "Next": 16060,
+    "Total": 414240
   },
   {
-    "Level":80,
-    "Next":17250,
-    "Total":430300
+    "Level": 80,
+    "Next": 17250,
+    "Total": 430300
   },
   {
-    "Level":81,
-    "Next":17825,
-    "Total":447550
+    "Level": 81,
+    "Next": 17825,
+    "Total": 447550
   },
   {
-    "Level":82,
-    "Next":18400,
-    "Total":465375
+    "Level": 82,
+    "Next": 18400,
+    "Total": 465375
   },
   {
-    "Level":83,
-    "Next":18975,
-    "Total":483775
+    "Level": 83,
+    "Next": 18975,
+    "Total": 483775
   },
   {
-    "Level":84,
-    "Next":19550,
-    "Total":502750
+    "Level": 84,
+    "Next": 19550,
+    "Total": 502750
   },
   {
-    "Level":85,
-    "Next":20125,
-    "Total":522300
+    "Level": 85,
+    "Next": 20125,
+    "Total": 522300
   },
   {
-    "Level":86,
-    "Next":20700,
-    "Total":542425
+    "Level": 86,
+    "Next": 20700,
+    "Total": 542425
   },
   {
-    "Level":87,
-    "Next":21275,
-    "Total":563125
+    "Level": 87,
+    "Next": 21275,
+    "Total": 563125
   },
   {
-    "Level":88,
-    "Next":21850,
-    "Total":584400
+    "Level": 88,
+    "Next": 21850,
+    "Total": 584400
   },
   {
-    "Level":89,
-    "Next":22425,
-    "Total":606250
+    "Level": 89,
+    "Next": 22425,
+    "Total": 606250
   },
   {
-    "Level":90,
-    "Next":24000,
-    "Total":628675
+    "Level": 90,
+    "Next": 24000,
+    "Total": 628675
   },
   {
-    "Level":91,
-    "Next":25200,
-    "Total":652675
+    "Level": 91,
+    "Next": 25200,
+    "Total": 652675
   },
   {
-    "Level":92,
-    "Next":26400,
-    "Total":677875
+    "Level": 92,
+    "Next": 26400,
+    "Total": 677875
   },
   {
-    "Level":93,
-    "Next":28800,
-    "Total":704275
+    "Level": 93,
+    "Next": 28800,
+    "Total": 704275
   },
   {
-    "Level":94,
-    "Next":31200,
-    "Total":733075
+    "Level": 94,
+    "Next": 31200,
+    "Total": 733075
   },
   {
-    "Level":95,
-    "Next":36000,
-    "Total":764275
+    "Level": 95,
+    "Next": 36000,
+    "Total": 764275
   },
   {
-    "Level":96,
-    "Next":42000,
-    "Total":800275
+    "Level": 96,
+    "Next": 42000,
+    "Total": 800275
   },
   {
-    "Level":97,
-    "Next":48000,
-    "Total":842275
+    "Level": 97,
+    "Next": 48000,
+    "Total": 842275
   },
   {
-    "Level":98,
-    "Next":72000,
-    "Total":890275
+    "Level": 98,
+    "Next": 72000,
+    "Total": 890275
   },
   {
-    "Level":99,
-    "Next":158400,
-    "Total":962275
+    "Level": 99,
+    "Next": 158400,
+    "Total": 962275
   },
   {
-    "Level":100,
-    "Next":70000,
-    "Total":1120675
+    "Level": 100,
+    "Next": 50000,
+    "Total": 1120675
   },
   {
-    "Level":101,
-    "Next":72000,
-    "Total":1190675
+    "Level": 101,
+    "Next": 53000,
+    "Total": 1170675
   },
   {
-    "Level":102,
-    "Next":74000,
-    "Total":1262675
+    "Level": 102,
+    "Next": 56000,
+    "Total": 1223675
   },
   {
-    "Level":103,
-    "Next":76000,
-    "Total":1336675
+    "Level": 103,
+    "Next": 59000,
+    "Total": 1279675
   },
   {
-    "Level":104,
-    "Next":78000,
-    "Total":1412675
+    "Level": 104,
+    "Next": 62000,
+    "Total": 1338675
   },
   {
-    "Level":105,
-    "Next":85000,
-    "Total":1490675
+    "Level": 105,
+    "Next": 65000,
+    "Total": 1400675
   },
   {
-    "Level":106,
-    "Next":97000,
-    "Total":1575675
+    "Level": 106,
+    "Next": 71000,
+    "Total": 1465675
   },
   {
-    "Level":107,
-    "Next":109000,
-    "Total":1672675
+    "Level": 107,
+    "Next": 77000,
+    "Total": 1536675
   },
   {
-    "Level":108,
-    "Next":121000,
-    "Total":1781675
+    "Level": 108,
+    "Next": 83000,
+    "Total": 1613675
   },
   {
-    "Level":109,
-    "Next":133000,
-    "Total":1902675
+    "Level": 109,
+    "Next": 89000,
+    "Total": 1696675
   },
   {
-    "Level":110,
-    "Next":145000,
-    "Total":2035675
+    "Level": 110,
+    "Next": 95000,
+    "Total": 1785675
   },
   {
-    "Level":111,
-    "Next":163000,
-    "Total":2180675
+    "Level": 111,
+    "Next": 105000,
+    "Total": 1880675
   },
   {
-    "Level":112,
-    "Next":181000,
-    "Total":2343675
+    "Level": 112,
+    "Next": 115000,
+    "Total": 1985675
   },
   {
-    "Level":113,
-    "Next":199000,
-    "Total":2524675
+    "Level": 113,
+    "Next": 125000,
+    "Total": 2100675
   },
   {
-    "Level":114,
-    "Next":217000,
-    "Total":2723675
+    "Level": 114,
+    "Next": 135000,
+    "Total": 2225675
   },
   {
-    "Level":115,
-    "Next":235000,
-    "Total":2940675
+    "Level": 115,
+    "Next": 145000,
+    "Total": 2360675
   },
   {
-    "Level":116,
-    "Next":256000,
-    "Total":3175675
+    "Level": 116,
+    "Next": 160000,
+    "Total": 2505675
   },
   {
-    "Level":117,
-    "Next":277000,
-    "Total":3431675
+    "Level": 117,
+    "Next": 175000,
+    "Total": 2665675
   },
   {
-    "Level":118,
-    "Next":298000,
-    "Total":3708675
+    "Level": 118,
+    "Next": 190000,
+    "Total": 2840675
   },
   {
-    "Level":119,
-    "Next":319000,
-    "Total":4006675
+    "Level": 119,
+    "Next": 205000,
+    "Total": 3030675
   },
   {
-    "Level":120,
-    "Next":0,
-    "Total":4325675
+    "Level": 120,
+    "Next": 220000,
+    "Total": 3235675
+  },
+  {
+    "Level": 121,
+    "Next": 241000,
+    "Total": 3455675
+  },
+  {
+    "Level": 122,
+    "Next": 262000,
+    "Total": 3696675
+  },
+  {
+    "Level": 123,
+    "Next": 283000,
+    "Total": 3958675
+  },
+  {
+    "Level": 124,
+    "Next": 304000,
+    "Total": 4241675
+  },
+  {
+    "Level": 125,
+    "Next": 0,
+    "Total": 4545675
   }
 ]
-
