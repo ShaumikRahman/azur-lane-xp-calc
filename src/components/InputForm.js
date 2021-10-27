@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const normalLevels = require("./../json/normal.json");
 const specialLevels = require("./../json/special.json");
 
@@ -6,6 +6,16 @@ const InputForm = ({controlMessage}) => {
   const [level, setLevel] = useState('');
   const [exp, setExp] = useState('');
   const [special, setSpecial] = useState(false);
+  const [tech, setTech] = useState(true);
+  const [maxIndex, setMaxIndex] = useState(125);
+
+  useEffect(() => {
+    if (tech) {
+      setMaxIndex(120);
+    } else {
+      setMaxIndex(125);
+    }
+  }, [tech]);
 
   const clear = (e) => {
     e.preventDefault();
@@ -19,9 +29,9 @@ const InputForm = ({controlMessage}) => {
     e.preventDefault();
     //console.clear();
 
-    if (level && level <= 125) {
+    if (level && level <= maxIndex) {
       if (special) {
-        const maxExp = specialLevels[124].Total;
+        const maxExp = specialLevels[maxIndex-1].Total;
         specialLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
@@ -37,7 +47,7 @@ const InputForm = ({controlMessage}) => {
               plusLevel = true;
               storedExp = storedExp - toNext;
               index++;
-              if (index < 124) {
+              if (index < maxIndex-1) {
                 toNext = specialLevels[index].Next;
               } else {
                 toNext = 3000000;
@@ -53,7 +63,7 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index < 124) {
+            if (index < maxIndex-1) {
               _next = specialLevels[index+1].Level;
               _maxProgress = (maxExp - (currentExp + initialStoredExp));
               _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
@@ -65,14 +75,14 @@ const InputForm = ({controlMessage}) => {
 
 
             let _level;
-            if (index < 124) {
+            if (index < maxIndex-1) {
               _level = specialLevels[index].Level;
            } else {
-              _level = specialLevels[124].Level;
+              _level = specialLevels[maxIndex-1].Level;
            }
 
            let percentage;
-           if (max) {
+           if (maxIndex) {
              if (storedExp > 3000000) {
                percentage = ((3000000 / toNext) * 100).toFixed(2);
              } else {
@@ -98,14 +108,16 @@ const InputForm = ({controlMessage}) => {
               "next": _next,
               "maxProgress": _maxProgress,
               "maxPercentage": _maxPercentage,
-              "storedExp": initialStoredExp
+              "storedExp": initialStoredExp,
+              "tech": tech,
+              "max": maxIndex
             }
             
             controlMessage(data);
           }
         });
       } else {
-        const maxExp = normalLevels[124].Total;
+        const maxExp = normalLevels[maxIndex-1].Total;
         normalLevels.forEach((levelInfo) => {
           if (level === levelInfo.Level) {
             const currentExp = levelInfo.Total;
@@ -122,7 +134,7 @@ const InputForm = ({controlMessage}) => {
               storedExp = storedExp - toNext;
 
               index++;
-              if (index < 124) {
+              if (index < maxIndex-1) {
                 toNext = normalLevels[index].Next;
               } else {
                 toNext = 3000000;
@@ -137,7 +149,7 @@ const InputForm = ({controlMessage}) => {
             let _next;
             let _maxProgress;
             let _maxPercentage;
-            if (index < 124) {
+            if (index < maxIndex-1) {
               _next = normalLevels[index+1].Level;
               _maxProgress = (maxExp - (currentExp + initialStoredExp));
               _maxPercentage = (((currentExp + initialStoredExp) / maxExp) * 100).toFixed(2);
@@ -149,10 +161,10 @@ const InputForm = ({controlMessage}) => {
             }
 
             let _level;
-            if (index < 124) {
+            if (index < maxIndex-1) {
                _level = normalLevels[index].Level;
             } else {
-               _level = normalLevels[124].Level;
+               _level = normalLevels[maxIndex-1].Level;
             }
             
             let percentage;
@@ -185,7 +197,9 @@ const InputForm = ({controlMessage}) => {
               "next": _next,
               "maxProgress": _maxProgress,
               "maxPercentage": _maxPercentage,
-              "storedExp": storedExp
+              "storedExp": storedExp,
+              "tech": tech,
+              "max": maxIndex
             }
 
             
@@ -238,7 +252,7 @@ const InputForm = ({controlMessage}) => {
           X
           </button>
         </div>
-        <div className="specialContainer">
+        <div className="modeContainer">
           <label htmlFor="special" className="specialLabel"> UR/DR </label>
           <input
             type="checkbox"
@@ -248,6 +262,19 @@ const InputForm = ({controlMessage}) => {
             onChange={(e) => {
               setSpecial(e.target.checked);
             }}
+            
+          />
+
+          <label htmlFor="tech" className="techLabel"> Tech Max </label>
+          <input
+            type="checkbox"
+            name="tech"
+            className="tech"
+            defaultChecked={tech}
+            onChange={(e) => {
+              setTech(e.target.checked);
+            }}
+            
           />
         </div>
         <div className="submitContainer">

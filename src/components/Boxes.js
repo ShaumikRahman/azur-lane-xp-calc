@@ -1,4 +1,5 @@
 const Boxes = ({data}) => {
+  
   let special;
   let currentLevel;
   let nextLevel;
@@ -8,11 +9,14 @@ const Boxes = ({data}) => {
   let maxPercentage;
   let plusLevel;
   let storedExp;
+  let max;
+  let tech;
 
   let output;
 
   if (data) {
     //console.log(data);
+
     special = data.special;
     currentLevel = data.level;
     nextLevel = data.next;
@@ -22,6 +26,8 @@ const Boxes = ({data}) => {
     maxPercentage = data.maxPercentage;
     plusLevel = data.plusLevel;
     storedExp = data.storedExp;
+    max = data.max;
+    tech = data.tech;
 
     if (currentLevel < 125) {
       output = (
@@ -62,6 +68,8 @@ const Boxes = ({data}) => {
     maxRemaining = 0;
     maxPercentage = 0;
     plusLevel = false;
+    max = 125;
+    tech = false;
 
     output = <p>Enter ship level</p>;
   }
@@ -96,11 +104,11 @@ const Boxes = ({data}) => {
         <div className="info">{output}</div>
       </div>
       <div className="outputSection third">
-        <h2 className="sectionTitle">Max Level</h2>
+        {tech ? <h2 className="sectionTitle">Tech Bonus</h2> : <h2 className="sectionTitle">Max Level</h2>}
         <div className="percentageNumbers">
           <p className="currentLevel">{currentLevel}</p>
           <span className="space"></span>
-          <p className="nextLevel">125</p>
+          <p className="nextLevel">{max}</p>
         </div>
         <div
           className="percentageBar"

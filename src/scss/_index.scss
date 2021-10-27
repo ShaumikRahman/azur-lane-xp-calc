@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
       }
     }
 
-    .specialContainer {
+    .modeContainer {
       margin-top: 1rem;
       //text-align: center;
       display: flex;
@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
       gap: 1rem;
       align-items: center;
 
-      .special {
+      .special, .tech {
         height: 1.5rem;
         width: 1.5rem;
         cursor: pointer;
